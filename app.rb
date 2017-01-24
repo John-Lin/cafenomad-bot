@@ -77,14 +77,13 @@ post '/callback' do
             actions: [
               {
                 type: 'uri',
-                label: 'View on Cafenomad',
+                label: 'View on Cafe Nomad',
                 uri: "https://cafenomad.tw/shop/#{scs['id']}"
               },
               {
                 type: 'uri',
                 label: 'Google Map',
                 uri: "https://www.google.com/maps/dir/'#{user_current_latitude},#{user_current_longitude}'/'#{scs["latitude"]},#{scs["longitude"]}'"
-                # uri: "https://www.google.com/maps/dir/Current+Location/#{scs["latitude"]},#{scs["longitude"]}"
               },
               office_site_hash
             ]
@@ -93,7 +92,7 @@ post '/callback' do
 
         feedback  = {
           type: 'template',
-          altText: '電腦版尚未支援，或是 LINE 沒有更新到最新版。',
+          altText: '謝謝你的查詢',
           template: {
             type: 'carousel',
             columns: coffees_columns
