@@ -47,7 +47,7 @@ post '/callback' do
 
         response = HTTP.get('https://cafenomad.tw/api/v1.0/cafes').to_s
         response_json = JSON.parse(response)
-        # puts response_json
+
         feedback = {}
         coffees_columns = []
         coffee_shops = []
@@ -71,7 +71,7 @@ post '/callback' do
           end
 
           coffees_columns << {
-            # thumbnailImageUrl: 'https://bot2line.herokuapp.com/img/coffee',
+            # thumbnailImageUrl: '',
             title: scs['name'],
             text: "#{scs['address']}\n#{scs['distance_ms'].round} 公尺",
             actions: [
@@ -83,7 +83,8 @@ post '/callback' do
               {
                 type: 'uri',
                 label: 'Google Map',
-                uri: "https://www.google.com/maps/dir/Current+Location/#{scs["latitude"]},#{scs["longitude"]}"
+                uri: "comgooglemaps://?q=#{scs["latitude"]},#{scs["longitude"]}"
+                # uri: "https://www.google.com/maps/dir/Current+Location/#{scs["latitude"]},#{scs["longitude"]}"
               },
               office_site_hash
             ]
@@ -105,16 +106,18 @@ post '/callback' do
           reply event, feedback
         end
 
-      when Line::Bot::Event::Join
-        reply event, textmsg('你好！歡迎使用 Cafe Nomad 小幫手')
-      when Line::Bot::Event::MessageType::Text
-        message = {
-          type: 'text',
-          text: event.message['text']
-        }
+      # when Line::Bot::Event::Join
+      #   reply event, textmsg('你好！歡迎使用 Cafe Nomad 小幫手')
 
-      when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
-        reply event, textmsg("謝謝分享，但我現在還看不懂圖片與影片呢。")
+      # when Line::Bot::Event::MessageType::Text
+      #   message = {
+      #     type: 'text',
+      #     text: event.message['text']
+      #   }
+
+      # when Line::Bot::Event::MessageType::Image, Line::Bot::Event::MessageType::Video
+      #   reply event, textmsg("謝謝分享，但我現在還看不懂圖片與影片呢。")
+
       end
     end
   }
