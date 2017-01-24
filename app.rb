@@ -105,7 +105,7 @@ post '/callback' do
           reply event, feedback
         end
 
-      when Line::Bot::Event::MessageType::Join
+      when Line::Bot::Event::Join
         reply event, textmsg('你好！歡迎使用 Cafe Nomad 小幫手')
       when Line::Bot::Event::MessageType::Text
         message = {

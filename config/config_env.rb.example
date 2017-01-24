@@ -4,5 +4,4 @@
 config_env do
   set 'LINE_CHANNEL_SECRET', '...'
   set 'LINE_CHANNEL_TOKEN', '...'
-  set 'FORECASTIO_APIKEY', '...'
 end
