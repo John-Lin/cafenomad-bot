@@ -1,0 +1,8 @@
+# Skeleton file for true config_env.rb
+# - put your keys/secrets in '...'
+
+config_env do
+  set 'LINE_CHANNEL_SECRET', '...'
+  set 'LINE_CHANNEL_TOKEN', '...'
+  set 'FORECASTIO_APIKEY', '...'
+end

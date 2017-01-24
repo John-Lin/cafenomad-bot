@@ -1,0 +1,47 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.5.0)
+      public_suffix (~> 2.0, >= 2.0.2)
+    config_env (0.1.2)
+    domain_name (0.5.20161129)
+      unf (>= 0.0.5, < 1.0.0)
+    geokit (1.10.0)
+    http (2.1.0)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (1.0.1)
+    http_parser.rb (0.6.0)
+    line-bot-api (1.1.0)
+    public_suffix (2.0.5)
+    puma (3.6.2)
+    rack (1.6.5)
+    rack-protection (1.5.3)
+      rack
+    sinatra (1.4.7)
+      rack (~> 1.5)
+      rack-protection (~> 1.4)
+      tilt (>= 1.3, < 3)
+    tilt (2.0.5)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  config_env
+  geokit
+  http
+  line-bot-api
+  puma
+  rack
+  sinatra
+
+BUNDLED WITH
+   1.12.5
