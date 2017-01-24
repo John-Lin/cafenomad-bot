@@ -38,11 +38,11 @@ post '/callback' do
     when Line::Bot::Event::Message
       case event.type
       when Line::Bot::Event::MessageType::Location
-        latitude = event.message['latitude']
-        longitude = event.message['longitude']
+        user_current_latitude = event.message['latitude']
+        user_current_longitude = event.message['longitude']
         address = event.message['address']
 
-        current_location = Geokit::LatLng.new(latitude, longitude)
+        current_location = Geokit::LatLng.new(user_current_latitude, user_current_longitude)
         Geokit::default_units = :meters
 
         response = HTTP.get('https://cafenomad.tw/api/v1.0/cafes').to_s
@@ -83,7 +83,7 @@ post '/callback' do
               {
                 type: 'uri',
                 label: 'Google Map',
-                uri: "comgooglemaps://?q=#{scs["latitude"]},#{scs["longitude"]}"
+                uri: "https://www.google.com/maps/dir/'#{user_current_latitude},#{user_current_longitude}'/'#{scs["latitude"]},#{scs["longitude"]}'"
                 # uri: "https://www.google.com/maps/dir/Current+Location/#{scs["latitude"]},#{scs["longitude"]}"
               },
               office_site_hash
