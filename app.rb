@@ -92,7 +92,7 @@ post '/callback' do
 
         feedback  = {
           type: 'template',
-          altText: '謝謝你的查詢',
+          altText: '咖啡廳資訊如下，謝謝你的查詢。',
           template: {
             type: 'carousel',
             columns: coffees_columns
